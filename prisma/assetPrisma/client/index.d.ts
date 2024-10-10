@@ -28,11 +28,6 @@ export type monster = $Result.DefaultSelection<Prisma.$monsterPayload>
  * 
  */
 export type tower = $Result.DefaultSelection<Prisma.$towerPayload>
-/**
- * Model upgrade
- * 
- */
-export type upgrade = $Result.DefaultSelection<Prisma.$upgradePayload>
 
 /**
  * Enums
@@ -204,16 +199,6 @@ export class PrismaClient<
     * ```
     */
   get tower(): Prisma.towerDelegate<ExtArgs>;
-
-  /**
-   * `prisma.upgrade`: Exposes CRUD operations for the **upgrade** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Upgrades
-    * const upgrades = await prisma.upgrade.findMany()
-    * ```
-    */
-  get upgrade(): Prisma.upgradeDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -657,8 +642,7 @@ export namespace Prisma {
   export const ModelName: {
     initGame: 'initGame',
     monster: 'monster',
-    tower: 'tower',
-    upgrade: 'upgrade'
+    tower: 'tower'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -674,7 +658,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "initGame" | "monster" | "tower" | "upgrade"
+      modelProps: "initGame" | "monster" | "tower"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -873,72 +857,6 @@ export namespace Prisma {
           count: {
             args: Prisma.towerCountArgs<ExtArgs>
             result: $Utils.Optional<TowerCountAggregateOutputType> | number
-          }
-        }
-      }
-      upgrade: {
-        payload: Prisma.$upgradePayload<ExtArgs>
-        fields: Prisma.upgradeFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.upgradeFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$upgradePayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.upgradeFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$upgradePayload>
-          }
-          findFirst: {
-            args: Prisma.upgradeFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$upgradePayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.upgradeFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$upgradePayload>
-          }
-          findMany: {
-            args: Prisma.upgradeFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$upgradePayload>[]
-          }
-          create: {
-            args: Prisma.upgradeCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$upgradePayload>
-          }
-          createMany: {
-            args: Prisma.upgradeCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.upgradeDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$upgradePayload>
-          }
-          update: {
-            args: Prisma.upgradeUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$upgradePayload>
-          }
-          deleteMany: {
-            args: Prisma.upgradeDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.upgradeUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.upgradeUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$upgradePayload>
-          }
-          aggregate: {
-            args: Prisma.UpgradeAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateUpgrade>
-          }
-          groupBy: {
-            args: Prisma.upgradeGroupByArgs<ExtArgs>
-            result: $Utils.Optional<UpgradeGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.upgradeCountArgs<ExtArgs>
-            result: $Utils.Optional<UpgradeCountAggregateOutputType> | number
           }
         }
       }
@@ -2915,6 +2833,7 @@ export namespace Prisma {
     attackSpeed: number | null
     attackRange: number | null
     towerPrice: number | null
+    upgradeAttackPower: number | null
   }
 
   export type TowerSumAggregateOutputType = {
@@ -2923,6 +2842,7 @@ export namespace Prisma {
     attackSpeed: number | null
     attackRange: number | null
     towerPrice: number | null
+    upgradeAttackPower: number | null
   }
 
   export type TowerMinAggregateOutputType = {
@@ -2933,6 +2853,7 @@ export namespace Prisma {
     attackRange: number | null
     attackType: $Enums.attackType | null
     towerPrice: number | null
+    upgradeAttackPower: number | null
   }
 
   export type TowerMaxAggregateOutputType = {
@@ -2943,6 +2864,7 @@ export namespace Prisma {
     attackRange: number | null
     attackType: $Enums.attackType | null
     towerPrice: number | null
+    upgradeAttackPower: number | null
   }
 
   export type TowerCountAggregateOutputType = {
@@ -2953,6 +2875,7 @@ export namespace Prisma {
     attackRange: number
     attackType: number
     towerPrice: number
+    upgradeAttackPower: number
     _all: number
   }
 
@@ -2963,6 +2886,7 @@ export namespace Prisma {
     attackSpeed?: true
     attackRange?: true
     towerPrice?: true
+    upgradeAttackPower?: true
   }
 
   export type TowerSumAggregateInputType = {
@@ -2971,6 +2895,7 @@ export namespace Prisma {
     attackSpeed?: true
     attackRange?: true
     towerPrice?: true
+    upgradeAttackPower?: true
   }
 
   export type TowerMinAggregateInputType = {
@@ -2981,6 +2906,7 @@ export namespace Prisma {
     attackRange?: true
     attackType?: true
     towerPrice?: true
+    upgradeAttackPower?: true
   }
 
   export type TowerMaxAggregateInputType = {
@@ -2991,6 +2917,7 @@ export namespace Prisma {
     attackRange?: true
     attackType?: true
     towerPrice?: true
+    upgradeAttackPower?: true
   }
 
   export type TowerCountAggregateInputType = {
@@ -3001,6 +2928,7 @@ export namespace Prisma {
     attackRange?: true
     attackType?: true
     towerPrice?: true
+    upgradeAttackPower?: true
     _all?: true
   }
 
@@ -3098,6 +3026,7 @@ export namespace Prisma {
     attackRange: number
     attackType: $Enums.attackType
     towerPrice: number
+    upgradeAttackPower: number
     _count: TowerCountAggregateOutputType | null
     _avg: TowerAvgAggregateOutputType | null
     _sum: TowerSumAggregateOutputType | null
@@ -3127,6 +3056,7 @@ export namespace Prisma {
     attackRange?: boolean
     attackType?: boolean
     towerPrice?: boolean
+    upgradeAttackPower?: boolean
   }, ExtArgs["result"]["tower"]>
 
 
@@ -3138,6 +3068,7 @@ export namespace Prisma {
     attackRange?: boolean
     attackType?: boolean
     towerPrice?: boolean
+    upgradeAttackPower?: boolean
   }
 
 
@@ -3152,6 +3083,7 @@ export namespace Prisma {
       attackRange: number
       attackType: $Enums.attackType
       towerPrice: number
+      upgradeAttackPower: number
     }, ExtArgs["result"]["tower"]>
     composites: {}
   }
@@ -3528,6 +3460,7 @@ export namespace Prisma {
     readonly attackRange: FieldRef<"tower", 'Int'>
     readonly attackType: FieldRef<"tower", 'attackType'>
     readonly towerPrice: FieldRef<"tower", 'Int'>
+    readonly upgradeAttackPower: FieldRef<"tower", 'Int'>
   }
     
 
@@ -3802,843 +3735,6 @@ export namespace Prisma {
 
 
   /**
-   * Model upgrade
-   */
-
-  export type AggregateUpgrade = {
-    _count: UpgradeCountAggregateOutputType | null
-    _avg: UpgradeAvgAggregateOutputType | null
-    _sum: UpgradeSumAggregateOutputType | null
-    _min: UpgradeMinAggregateOutputType | null
-    _max: UpgradeMaxAggregateOutputType | null
-  }
-
-  export type UpgradeAvgAggregateOutputType = {
-    id: number | null
-    upgradeRatio: number | null
-  }
-
-  export type UpgradeSumAggregateOutputType = {
-    id: number | null
-    upgradeRatio: number | null
-  }
-
-  export type UpgradeMinAggregateOutputType = {
-    id: number | null
-    upgradeRatio: number | null
-  }
-
-  export type UpgradeMaxAggregateOutputType = {
-    id: number | null
-    upgradeRatio: number | null
-  }
-
-  export type UpgradeCountAggregateOutputType = {
-    id: number
-    upgradeRatio: number
-    _all: number
-  }
-
-
-  export type UpgradeAvgAggregateInputType = {
-    id?: true
-    upgradeRatio?: true
-  }
-
-  export type UpgradeSumAggregateInputType = {
-    id?: true
-    upgradeRatio?: true
-  }
-
-  export type UpgradeMinAggregateInputType = {
-    id?: true
-    upgradeRatio?: true
-  }
-
-  export type UpgradeMaxAggregateInputType = {
-    id?: true
-    upgradeRatio?: true
-  }
-
-  export type UpgradeCountAggregateInputType = {
-    id?: true
-    upgradeRatio?: true
-    _all?: true
-  }
-
-  export type UpgradeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which upgrade to aggregate.
-     */
-    where?: upgradeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of upgrades to fetch.
-     */
-    orderBy?: upgradeOrderByWithRelationInput | upgradeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: upgradeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` upgrades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` upgrades.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned upgrades
-    **/
-    _count?: true | UpgradeCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: UpgradeAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: UpgradeSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: UpgradeMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: UpgradeMaxAggregateInputType
-  }
-
-  export type GetUpgradeAggregateType<T extends UpgradeAggregateArgs> = {
-        [P in keyof T & keyof AggregateUpgrade]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateUpgrade[P]>
-      : GetScalarType<T[P], AggregateUpgrade[P]>
-  }
-
-
-
-
-  export type upgradeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: upgradeWhereInput
-    orderBy?: upgradeOrderByWithAggregationInput | upgradeOrderByWithAggregationInput[]
-    by: UpgradeScalarFieldEnum[] | UpgradeScalarFieldEnum
-    having?: upgradeScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: UpgradeCountAggregateInputType | true
-    _avg?: UpgradeAvgAggregateInputType
-    _sum?: UpgradeSumAggregateInputType
-    _min?: UpgradeMinAggregateInputType
-    _max?: UpgradeMaxAggregateInputType
-  }
-
-  export type UpgradeGroupByOutputType = {
-    id: number
-    upgradeRatio: number
-    _count: UpgradeCountAggregateOutputType | null
-    _avg: UpgradeAvgAggregateOutputType | null
-    _sum: UpgradeSumAggregateOutputType | null
-    _min: UpgradeMinAggregateOutputType | null
-    _max: UpgradeMaxAggregateOutputType | null
-  }
-
-  type GetUpgradeGroupByPayload<T extends upgradeGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<UpgradeGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof UpgradeGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], UpgradeGroupByOutputType[P]>
-            : GetScalarType<T[P], UpgradeGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type upgradeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    upgradeRatio?: boolean
-  }, ExtArgs["result"]["upgrade"]>
-
-
-  export type upgradeSelectScalar = {
-    id?: boolean
-    upgradeRatio?: boolean
-  }
-
-
-  export type $upgradePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "upgrade"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      upgradeRatio: number
-    }, ExtArgs["result"]["upgrade"]>
-    composites: {}
-  }
-
-  type upgradeGetPayload<S extends boolean | null | undefined | upgradeDefaultArgs> = $Result.GetResult<Prisma.$upgradePayload, S>
-
-  type upgradeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<upgradeFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: UpgradeCountAggregateInputType | true
-    }
-
-  export interface upgradeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['upgrade'], meta: { name: 'upgrade' } }
-    /**
-     * Find zero or one Upgrade that matches the filter.
-     * @param {upgradeFindUniqueArgs} args - Arguments to find a Upgrade
-     * @example
-     * // Get one Upgrade
-     * const upgrade = await prisma.upgrade.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends upgradeFindUniqueArgs>(args: SelectSubset<T, upgradeFindUniqueArgs<ExtArgs>>): Prisma__upgradeClient<$Result.GetResult<Prisma.$upgradePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
-
-    /**
-     * Find one Upgrade that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
-     * @param {upgradeFindUniqueOrThrowArgs} args - Arguments to find a Upgrade
-     * @example
-     * // Get one Upgrade
-     * const upgrade = await prisma.upgrade.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends upgradeFindUniqueOrThrowArgs>(args: SelectSubset<T, upgradeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__upgradeClient<$Result.GetResult<Prisma.$upgradePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
-
-    /**
-     * Find the first Upgrade that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {upgradeFindFirstArgs} args - Arguments to find a Upgrade
-     * @example
-     * // Get one Upgrade
-     * const upgrade = await prisma.upgrade.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends upgradeFindFirstArgs>(args?: SelectSubset<T, upgradeFindFirstArgs<ExtArgs>>): Prisma__upgradeClient<$Result.GetResult<Prisma.$upgradePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
-
-    /**
-     * Find the first Upgrade that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {upgradeFindFirstOrThrowArgs} args - Arguments to find a Upgrade
-     * @example
-     * // Get one Upgrade
-     * const upgrade = await prisma.upgrade.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends upgradeFindFirstOrThrowArgs>(args?: SelectSubset<T, upgradeFindFirstOrThrowArgs<ExtArgs>>): Prisma__upgradeClient<$Result.GetResult<Prisma.$upgradePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
-
-    /**
-     * Find zero or more Upgrades that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {upgradeFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Upgrades
-     * const upgrades = await prisma.upgrade.findMany()
-     * 
-     * // Get first 10 Upgrades
-     * const upgrades = await prisma.upgrade.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const upgradeWithIdOnly = await prisma.upgrade.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends upgradeFindManyArgs>(args?: SelectSubset<T, upgradeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$upgradePayload<ExtArgs>, T, "findMany">>
-
-    /**
-     * Create a Upgrade.
-     * @param {upgradeCreateArgs} args - Arguments to create a Upgrade.
-     * @example
-     * // Create one Upgrade
-     * const Upgrade = await prisma.upgrade.create({
-     *   data: {
-     *     // ... data to create a Upgrade
-     *   }
-     * })
-     * 
-     */
-    create<T extends upgradeCreateArgs>(args: SelectSubset<T, upgradeCreateArgs<ExtArgs>>): Prisma__upgradeClient<$Result.GetResult<Prisma.$upgradePayload<ExtArgs>, T, "create">, never, ExtArgs>
-
-    /**
-     * Create many Upgrades.
-     * @param {upgradeCreateManyArgs} args - Arguments to create many Upgrades.
-     * @example
-     * // Create many Upgrades
-     * const upgrade = await prisma.upgrade.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends upgradeCreateManyArgs>(args?: SelectSubset<T, upgradeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Upgrade.
-     * @param {upgradeDeleteArgs} args - Arguments to delete one Upgrade.
-     * @example
-     * // Delete one Upgrade
-     * const Upgrade = await prisma.upgrade.delete({
-     *   where: {
-     *     // ... filter to delete one Upgrade
-     *   }
-     * })
-     * 
-     */
-    delete<T extends upgradeDeleteArgs>(args: SelectSubset<T, upgradeDeleteArgs<ExtArgs>>): Prisma__upgradeClient<$Result.GetResult<Prisma.$upgradePayload<ExtArgs>, T, "delete">, never, ExtArgs>
-
-    /**
-     * Update one Upgrade.
-     * @param {upgradeUpdateArgs} args - Arguments to update one Upgrade.
-     * @example
-     * // Update one Upgrade
-     * const upgrade = await prisma.upgrade.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends upgradeUpdateArgs>(args: SelectSubset<T, upgradeUpdateArgs<ExtArgs>>): Prisma__upgradeClient<$Result.GetResult<Prisma.$upgradePayload<ExtArgs>, T, "update">, never, ExtArgs>
-
-    /**
-     * Delete zero or more Upgrades.
-     * @param {upgradeDeleteManyArgs} args - Arguments to filter Upgrades to delete.
-     * @example
-     * // Delete a few Upgrades
-     * const { count } = await prisma.upgrade.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends upgradeDeleteManyArgs>(args?: SelectSubset<T, upgradeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Upgrades.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {upgradeUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Upgrades
-     * const upgrade = await prisma.upgrade.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends upgradeUpdateManyArgs>(args: SelectSubset<T, upgradeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Upgrade.
-     * @param {upgradeUpsertArgs} args - Arguments to update or create a Upgrade.
-     * @example
-     * // Update or create a Upgrade
-     * const upgrade = await prisma.upgrade.upsert({
-     *   create: {
-     *     // ... data to create a Upgrade
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Upgrade we want to update
-     *   }
-     * })
-     */
-    upsert<T extends upgradeUpsertArgs>(args: SelectSubset<T, upgradeUpsertArgs<ExtArgs>>): Prisma__upgradeClient<$Result.GetResult<Prisma.$upgradePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
-
-
-    /**
-     * Count the number of Upgrades.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {upgradeCountArgs} args - Arguments to filter Upgrades to count.
-     * @example
-     * // Count the number of Upgrades
-     * const count = await prisma.upgrade.count({
-     *   where: {
-     *     // ... the filter for the Upgrades we want to count
-     *   }
-     * })
-    **/
-    count<T extends upgradeCountArgs>(
-      args?: Subset<T, upgradeCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], UpgradeCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Upgrade.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {UpgradeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends UpgradeAggregateArgs>(args: Subset<T, UpgradeAggregateArgs>): Prisma.PrismaPromise<GetUpgradeAggregateType<T>>
-
-    /**
-     * Group by Upgrade.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {upgradeGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends upgradeGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: upgradeGroupByArgs['orderBy'] }
-        : { orderBy?: upgradeGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, upgradeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUpgradeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the upgrade model
-   */
-  readonly fields: upgradeFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for upgrade.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__upgradeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the upgrade model
-   */ 
-  interface upgradeFieldRefs {
-    readonly id: FieldRef<"upgrade", 'Int'>
-    readonly upgradeRatio: FieldRef<"upgrade", 'Int'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * upgrade findUnique
-   */
-  export type upgradeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the upgrade
-     */
-    select?: upgradeSelect<ExtArgs> | null
-    /**
-     * Filter, which upgrade to fetch.
-     */
-    where: upgradeWhereUniqueInput
-  }
-
-  /**
-   * upgrade findUniqueOrThrow
-   */
-  export type upgradeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the upgrade
-     */
-    select?: upgradeSelect<ExtArgs> | null
-    /**
-     * Filter, which upgrade to fetch.
-     */
-    where: upgradeWhereUniqueInput
-  }
-
-  /**
-   * upgrade findFirst
-   */
-  export type upgradeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the upgrade
-     */
-    select?: upgradeSelect<ExtArgs> | null
-    /**
-     * Filter, which upgrade to fetch.
-     */
-    where?: upgradeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of upgrades to fetch.
-     */
-    orderBy?: upgradeOrderByWithRelationInput | upgradeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for upgrades.
-     */
-    cursor?: upgradeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` upgrades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` upgrades.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of upgrades.
-     */
-    distinct?: UpgradeScalarFieldEnum | UpgradeScalarFieldEnum[]
-  }
-
-  /**
-   * upgrade findFirstOrThrow
-   */
-  export type upgradeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the upgrade
-     */
-    select?: upgradeSelect<ExtArgs> | null
-    /**
-     * Filter, which upgrade to fetch.
-     */
-    where?: upgradeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of upgrades to fetch.
-     */
-    orderBy?: upgradeOrderByWithRelationInput | upgradeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for upgrades.
-     */
-    cursor?: upgradeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` upgrades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` upgrades.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of upgrades.
-     */
-    distinct?: UpgradeScalarFieldEnum | UpgradeScalarFieldEnum[]
-  }
-
-  /**
-   * upgrade findMany
-   */
-  export type upgradeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the upgrade
-     */
-    select?: upgradeSelect<ExtArgs> | null
-    /**
-     * Filter, which upgrades to fetch.
-     */
-    where?: upgradeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of upgrades to fetch.
-     */
-    orderBy?: upgradeOrderByWithRelationInput | upgradeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing upgrades.
-     */
-    cursor?: upgradeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` upgrades from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` upgrades.
-     */
-    skip?: number
-    distinct?: UpgradeScalarFieldEnum | UpgradeScalarFieldEnum[]
-  }
-
-  /**
-   * upgrade create
-   */
-  export type upgradeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the upgrade
-     */
-    select?: upgradeSelect<ExtArgs> | null
-    /**
-     * The data needed to create a upgrade.
-     */
-    data: XOR<upgradeCreateInput, upgradeUncheckedCreateInput>
-  }
-
-  /**
-   * upgrade createMany
-   */
-  export type upgradeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many upgrades.
-     */
-    data: upgradeCreateManyInput | upgradeCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * upgrade update
-   */
-  export type upgradeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the upgrade
-     */
-    select?: upgradeSelect<ExtArgs> | null
-    /**
-     * The data needed to update a upgrade.
-     */
-    data: XOR<upgradeUpdateInput, upgradeUncheckedUpdateInput>
-    /**
-     * Choose, which upgrade to update.
-     */
-    where: upgradeWhereUniqueInput
-  }
-
-  /**
-   * upgrade updateMany
-   */
-  export type upgradeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update upgrades.
-     */
-    data: XOR<upgradeUpdateManyMutationInput, upgradeUncheckedUpdateManyInput>
-    /**
-     * Filter which upgrades to update
-     */
-    where?: upgradeWhereInput
-  }
-
-  /**
-   * upgrade upsert
-   */
-  export type upgradeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the upgrade
-     */
-    select?: upgradeSelect<ExtArgs> | null
-    /**
-     * The filter to search for the upgrade to update in case it exists.
-     */
-    where: upgradeWhereUniqueInput
-    /**
-     * In case the upgrade found by the `where` argument doesn't exist, create a new upgrade with this data.
-     */
-    create: XOR<upgradeCreateInput, upgradeUncheckedCreateInput>
-    /**
-     * In case the upgrade was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<upgradeUpdateInput, upgradeUncheckedUpdateInput>
-  }
-
-  /**
-   * upgrade delete
-   */
-  export type upgradeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the upgrade
-     */
-    select?: upgradeSelect<ExtArgs> | null
-    /**
-     * Filter which upgrade to delete.
-     */
-    where: upgradeWhereUniqueInput
-  }
-
-  /**
-   * upgrade deleteMany
-   */
-  export type upgradeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which upgrades to delete
-     */
-    where?: upgradeWhereInput
-  }
-
-  /**
-   * upgrade without action
-   */
-  export type upgradeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the upgrade
-     */
-    select?: upgradeSelect<ExtArgs> | null
-  }
-
-
-  /**
    * Enums
    */
 
@@ -4683,18 +3779,11 @@ export namespace Prisma {
     attackSpeed: 'attackSpeed',
     attackRange: 'attackRange',
     attackType: 'attackType',
-    towerPrice: 'towerPrice'
+    towerPrice: 'towerPrice',
+    upgradeAttackPower: 'upgradeAttackPower'
   };
 
   export type TowerScalarFieldEnum = (typeof TowerScalarFieldEnum)[keyof typeof TowerScalarFieldEnum]
-
-
-  export const UpgradeScalarFieldEnum: {
-    id: 'id',
-    upgradeRatio: 'upgradeRatio'
-  };
-
-  export type UpgradeScalarFieldEnum = (typeof UpgradeScalarFieldEnum)[keyof typeof UpgradeScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4870,6 +3959,7 @@ export namespace Prisma {
     attackRange?: IntFilter<"tower"> | number
     attackType?: EnumattackTypeFilter<"tower"> | $Enums.attackType
     towerPrice?: IntFilter<"tower"> | number
+    upgradeAttackPower?: IntFilter<"tower"> | number
   }
 
   export type towerOrderByWithRelationInput = {
@@ -4880,6 +3970,7 @@ export namespace Prisma {
     attackRange?: SortOrder
     attackType?: SortOrder
     towerPrice?: SortOrder
+    upgradeAttackPower?: SortOrder
   }
 
   export type towerWhereUniqueInput = Prisma.AtLeast<{
@@ -4893,6 +3984,7 @@ export namespace Prisma {
     attackRange?: IntFilter<"tower"> | number
     attackType?: EnumattackTypeFilter<"tower"> | $Enums.attackType
     towerPrice?: IntFilter<"tower"> | number
+    upgradeAttackPower?: IntFilter<"tower"> | number
   }, "id">
 
   export type towerOrderByWithAggregationInput = {
@@ -4903,6 +3995,7 @@ export namespace Prisma {
     attackRange?: SortOrder
     attackType?: SortOrder
     towerPrice?: SortOrder
+    upgradeAttackPower?: SortOrder
     _count?: towerCountOrderByAggregateInput
     _avg?: towerAvgOrderByAggregateInput
     _max?: towerMaxOrderByAggregateInput
@@ -4921,45 +4014,7 @@ export namespace Prisma {
     attackRange?: IntWithAggregatesFilter<"tower"> | number
     attackType?: EnumattackTypeWithAggregatesFilter<"tower"> | $Enums.attackType
     towerPrice?: IntWithAggregatesFilter<"tower"> | number
-  }
-
-  export type upgradeWhereInput = {
-    AND?: upgradeWhereInput | upgradeWhereInput[]
-    OR?: upgradeWhereInput[]
-    NOT?: upgradeWhereInput | upgradeWhereInput[]
-    id?: IntFilter<"upgrade"> | number
-    upgradeRatio?: IntFilter<"upgrade"> | number
-  }
-
-  export type upgradeOrderByWithRelationInput = {
-    id?: SortOrder
-    upgradeRatio?: SortOrder
-  }
-
-  export type upgradeWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: upgradeWhereInput | upgradeWhereInput[]
-    OR?: upgradeWhereInput[]
-    NOT?: upgradeWhereInput | upgradeWhereInput[]
-    upgradeRatio?: IntFilter<"upgrade"> | number
-  }, "id" | "id">
-
-  export type upgradeOrderByWithAggregationInput = {
-    id?: SortOrder
-    upgradeRatio?: SortOrder
-    _count?: upgradeCountOrderByAggregateInput
-    _avg?: upgradeAvgOrderByAggregateInput
-    _max?: upgradeMaxOrderByAggregateInput
-    _min?: upgradeMinOrderByAggregateInput
-    _sum?: upgradeSumOrderByAggregateInput
-  }
-
-  export type upgradeScalarWhereWithAggregatesInput = {
-    AND?: upgradeScalarWhereWithAggregatesInput | upgradeScalarWhereWithAggregatesInput[]
-    OR?: upgradeScalarWhereWithAggregatesInput[]
-    NOT?: upgradeScalarWhereWithAggregatesInput | upgradeScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"upgrade"> | number
-    upgradeRatio?: IntWithAggregatesFilter<"upgrade"> | number
+    upgradeAttackPower?: IntWithAggregatesFilter<"tower"> | number
   }
 
   export type initGameCreateInput = {
@@ -5089,6 +4144,7 @@ export namespace Prisma {
     attackRange: number
     attackType: $Enums.attackType
     towerPrice: number
+    upgradeAttackPower: number
   }
 
   export type towerUncheckedCreateInput = {
@@ -5099,6 +4155,7 @@ export namespace Prisma {
     attackRange: number
     attackType: $Enums.attackType
     towerPrice: number
+    upgradeAttackPower: number
   }
 
   export type towerUpdateInput = {
@@ -5108,6 +4165,7 @@ export namespace Prisma {
     attackRange?: IntFieldUpdateOperationsInput | number
     attackType?: EnumattackTypeFieldUpdateOperationsInput | $Enums.attackType
     towerPrice?: IntFieldUpdateOperationsInput | number
+    upgradeAttackPower?: IntFieldUpdateOperationsInput | number
   }
 
   export type towerUncheckedUpdateInput = {
@@ -5118,6 +4176,7 @@ export namespace Prisma {
     attackRange?: IntFieldUpdateOperationsInput | number
     attackType?: EnumattackTypeFieldUpdateOperationsInput | $Enums.attackType
     towerPrice?: IntFieldUpdateOperationsInput | number
+    upgradeAttackPower?: IntFieldUpdateOperationsInput | number
   }
 
   export type towerCreateManyInput = {
@@ -5128,6 +4187,7 @@ export namespace Prisma {
     attackRange: number
     attackType: $Enums.attackType
     towerPrice: number
+    upgradeAttackPower: number
   }
 
   export type towerUpdateManyMutationInput = {
@@ -5137,6 +4197,7 @@ export namespace Prisma {
     attackRange?: IntFieldUpdateOperationsInput | number
     attackType?: EnumattackTypeFieldUpdateOperationsInput | $Enums.attackType
     towerPrice?: IntFieldUpdateOperationsInput | number
+    upgradeAttackPower?: IntFieldUpdateOperationsInput | number
   }
 
   export type towerUncheckedUpdateManyInput = {
@@ -5147,38 +4208,7 @@ export namespace Prisma {
     attackRange?: IntFieldUpdateOperationsInput | number
     attackType?: EnumattackTypeFieldUpdateOperationsInput | $Enums.attackType
     towerPrice?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type upgradeCreateInput = {
-    upgradeRatio: number
-  }
-
-  export type upgradeUncheckedCreateInput = {
-    id?: number
-    upgradeRatio: number
-  }
-
-  export type upgradeUpdateInput = {
-    upgradeRatio?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type upgradeUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    upgradeRatio?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type upgradeCreateManyInput = {
-    id?: number
-    upgradeRatio: number
-  }
-
-  export type upgradeUpdateManyMutationInput = {
-    upgradeRatio?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type upgradeUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    upgradeRatio?: IntFieldUpdateOperationsInput | number
+    upgradeAttackPower?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -5327,6 +4357,7 @@ export namespace Prisma {
     attackRange?: SortOrder
     attackType?: SortOrder
     towerPrice?: SortOrder
+    upgradeAttackPower?: SortOrder
   }
 
   export type towerAvgOrderByAggregateInput = {
@@ -5335,6 +4366,7 @@ export namespace Prisma {
     attackSpeed?: SortOrder
     attackRange?: SortOrder
     towerPrice?: SortOrder
+    upgradeAttackPower?: SortOrder
   }
 
   export type towerMaxOrderByAggregateInput = {
@@ -5345,6 +4377,7 @@ export namespace Prisma {
     attackRange?: SortOrder
     attackType?: SortOrder
     towerPrice?: SortOrder
+    upgradeAttackPower?: SortOrder
   }
 
   export type towerMinOrderByAggregateInput = {
@@ -5355,6 +4388,7 @@ export namespace Prisma {
     attackRange?: SortOrder
     attackType?: SortOrder
     towerPrice?: SortOrder
+    upgradeAttackPower?: SortOrder
   }
 
   export type towerSumOrderByAggregateInput = {
@@ -5363,6 +4397,7 @@ export namespace Prisma {
     attackSpeed?: SortOrder
     attackRange?: SortOrder
     towerPrice?: SortOrder
+    upgradeAttackPower?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -5390,31 +4425,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumattackTypeFilter<$PrismaModel>
     _max?: NestedEnumattackTypeFilter<$PrismaModel>
-  }
-
-  export type upgradeCountOrderByAggregateInput = {
-    id?: SortOrder
-    upgradeRatio?: SortOrder
-  }
-
-  export type upgradeAvgOrderByAggregateInput = {
-    id?: SortOrder
-    upgradeRatio?: SortOrder
-  }
-
-  export type upgradeMaxOrderByAggregateInput = {
-    id?: SortOrder
-    upgradeRatio?: SortOrder
-  }
-
-  export type upgradeMinOrderByAggregateInput = {
-    id?: SortOrder
-    upgradeRatio?: SortOrder
-  }
-
-  export type upgradeSumOrderByAggregateInput = {
-    id?: SortOrder
-    upgradeRatio?: SortOrder
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -5536,10 +4546,6 @@ export namespace Prisma {
      * @deprecated Use towerDefaultArgs instead
      */
     export type towerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = towerDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use upgradeDefaultArgs instead
-     */
-    export type upgradeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = upgradeDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

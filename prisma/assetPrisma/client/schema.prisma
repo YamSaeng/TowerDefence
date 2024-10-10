@@ -43,20 +43,14 @@ model monster {
 }
 
 model tower {
-  id          Int        @id @default(autoincrement()) @map("Id")
-  towerName   String     @map("towerName")
-  attackPower Int        @map("attackPower")
-  attackSpeed Int        @map("attackSpeed")
-  attackRange Int        @map("attackRange")
-  attackType  attackType @map("attackType")
-  towerPrice  Int        @map("towerPrice")
+  id                 Int        @id @default(autoincrement()) @map("Id")
+  towerName          String     @map("towerName")
+  attackPower        Int        @map("attackPower")
+  attackSpeed        Int        @map("attackSpeed")
+  attackRange        Int        @map("attackRange")
+  attackType         attackType @map("attackType")
+  towerPrice         Int        @map("towerPrice")
+  upgradeAttackPower Int        @map("upgradeAttackPower")
 
   @@map("Tower")
-}
-
-model upgrade {
-  id           Int @id @unique @default(autoincrement()) @map("id")
-  upgradeRatio Int @map("upgradeRatio")
-
-  @@map("Upgrade")
 }

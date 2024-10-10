@@ -147,12 +147,8 @@ exports.Prisma.TowerScalarFieldEnum = {
   attackSpeed: 'attackSpeed',
   attackRange: 'attackRange',
   attackType: 'attackType',
-  towerPrice: 'towerPrice'
-};
-
-exports.Prisma.UpgradeScalarFieldEnum = {
-  id: 'id',
-  upgradeRatio: 'upgradeRatio'
+  towerPrice: 'towerPrice',
+  upgradeAttackPower: 'upgradeAttackPower'
 };
 
 exports.Prisma.SortOrder = {
@@ -168,8 +164,7 @@ exports.attackType = exports.$Enums.attackType = {
 exports.Prisma.ModelName = {
   initGame: 'initGame',
   monster: 'monster',
-  tower: 'tower',
-  upgrade: 'upgrade'
+  tower: 'tower'
 };
 
 /**
